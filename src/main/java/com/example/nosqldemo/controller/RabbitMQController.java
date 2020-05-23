@@ -16,7 +16,7 @@ public class RabbitMQController {
 
     @GetMapping(value = "/hello")
     public String sendMQ5(){
-        String msg = "rabbitmq生成者发送失败和消费失败处理方案";
+        String msg = "rabbitmq生成者发送失败发未发文 和消费失败处理方案";
         try {
             // 针对网络原因导致连接断开，利用retryTemplate重连10次
             RetryTemplate retryTemplate = new RetryTemplate();
