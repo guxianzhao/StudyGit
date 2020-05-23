@@ -1,5 +1,6 @@
 package com.example.nosqldemo.controller;
 
+import com.example.nosqldemo.aop.AopService;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,9 @@ public class RabbitMQController {
         }
 
         return "success";
+    }
+    @GetMapping(value = "/sayhello")
+    public String sayhello(String name) throws Exception {
+        return new AopService().sayHello(name);
     }
 }

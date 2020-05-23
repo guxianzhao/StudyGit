@@ -24,7 +24,7 @@ public class Receiver {
         // 模拟消费者代码异常，这种情况必须在catch块设置重试次数（也可以在配置文件中全局设置重试次数，当然百度的方案都不行，所以我没成功过），防止死循环
         // catch块中重试可用redis的自增来做计数器，从而控制重试次数
         try {
-            int i = 1/0;
+            System.out.println("消息消费成功："+message);
         } catch (Exception e) {
             System.out.println("queue:" +  new String(message.getBody()));
             channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
