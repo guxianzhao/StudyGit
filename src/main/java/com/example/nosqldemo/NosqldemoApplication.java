@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class NosqldemoApplication {
+	// 将代码合并到分支上去
 
 	public static void main(String[] args) {
 		SpringApplication.run(NosqldemoApplication.class, args);
