@@ -1,5 +1,7 @@
 package com.example.nosqldemo.mongodb;
 
+import com.example.nosqldemo.annotation.NeedSetValue;
+import com.example.nosqldemo.service.StudentService;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,6 +12,7 @@ import java.util.List;
 public class Student {
 
     private Integer id;
+    @NeedSetValue(beanClass = StudentService.class,param = "id",method = "getCourse",targetField = "name")
     private String name;
     private String sex;
     private List<Course> courseList;
