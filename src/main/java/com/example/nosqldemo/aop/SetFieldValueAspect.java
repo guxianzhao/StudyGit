@@ -23,6 +23,6 @@ public class SetFieldValueAspect {
         Object ret = pjp.proceed();
         // 获取注解，通过反射执行方法
         beanUtil.setFieldValueForCollection((Collection) ret);
-        return new Object();
+        return ret;
     }
 }

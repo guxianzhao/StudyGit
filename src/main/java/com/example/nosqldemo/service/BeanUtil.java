@@ -10,8 +10,6 @@ import org.springframework.util.StringUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class BeanUtil implements ApplicationContextAware {
@@ -29,7 +27,7 @@ public class BeanUtil implements ApplicationContextAware {
 
         Field[] fields = clazz.getDeclaredFields();
 
-        Map<String, Object> cache = new HashMap<>();
+//        Map<String, Object> cache = new HashMap<>();
 
         for (Field needField : fields) {
             NeedSetValue sv = needField.getAnnotation(NeedSetValue.class);
@@ -57,10 +55,10 @@ public class BeanUtil implements ApplicationContextAware {
                 }
 
                 Object value = null;
-                String key = keyPrefix + paramValue;
-                if (cache.containsKey(key)) {
-                    value = cache.get(key);
-                } else {
+//                String key = keyPrefix + paramValue;
+//                if (cache.containsKey(key)) {
+//                    value = cache.get(key);
+//                } else {
                     value = method.invoke(bean, paramValue);
 
                     if (needInnerField && value != null) {
@@ -70,9 +68,9 @@ public class BeanUtil implements ApplicationContextAware {
                         }
                         value = targetFile.get(value);
                     }
-                    cache.put(key, value);
-                }
-                needField.set(obj, value);
+//                    cache.put(key, value);
+//                }
+//                needField.set(obj, value);
             }
 
         }
